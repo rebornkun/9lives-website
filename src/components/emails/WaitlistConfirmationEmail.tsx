@@ -255,8 +255,8 @@ export const WaitlistConfirmationEmail = (
           </Section>
 
           <Text style={text4}>
-            You are subscribed to 9live&apos;s Updates and Newsletters. To make sure
-            you receive your email from 9lives, add{" "}
+            You are subscribed to 9live&apos;s Updates and Newsletters. To make
+            sure you receive your email from 9lives, add{" "}
             <Link
               href="mailto:info@9livesapp.com"
               style={{
@@ -309,8 +309,6 @@ export const WaitlistConfirmationEmail = (
             style={{
               width: "100%",
               maxWidth: "484px",
-              // borderCollapse: "separate",
-              // borderSpacing: "16px",
               border: "none",
               margin: "0px auto",
               marginTop: "10px",
