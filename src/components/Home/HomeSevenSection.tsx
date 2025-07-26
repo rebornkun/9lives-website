@@ -25,7 +25,7 @@ const HomeSevenSection = () => {
     setFormStatus({ type: "", message: "" });
 
     try {
-      // Use the API route which handles both Supabase and Resend
+      // Use the Next.js API route which should now work with our improved configuration
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: {

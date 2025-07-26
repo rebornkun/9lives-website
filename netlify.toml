@@ -1,17 +1,38 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
 
+# Explicitly configure for app router
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Ensure API routes work correctly
+# Specific redirect for waitlist API route
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/nextjs-server"
+  from = "/api/waitlist"
+  to = "/.netlify/functions/nextjs-server/api/waitlist"
   status = 200
   force = true
+
+# General redirect for other API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/nextjs-server/api/:splat"
+  status = 200
+  force = true
+
+# Ensure all other routes are handled by Next.js
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/nextjs-server"
+  status = 200
